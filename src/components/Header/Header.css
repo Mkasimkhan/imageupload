@@ -1,0 +1,46 @@
+.header {
+    width: 95vw;
+    height: 10vh;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button container */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+/* Login and Signup buttons styled similarly to the "Select Image" button */
+.login-btn, .signup-btn {
+    background-color: #007bff; /* Blue background (same as Select Image) */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover, .signup-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Profile styling */
+.profile {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-image: url('../../assets/man.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
