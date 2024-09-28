@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import './Uploader.css';
 import { IoIosArrowForward } from "react-icons/io";
 
-
 const Uploader = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const [imageName, setImageName] = useState("");
-  const [showPopup, setShowPopup] = useState(false); // For popup visibility
+  const [buttonRound, setButtonRound] = useState(false); // For button animation state
 
   const handleImageChange = (e) => {
     const image = e.target.files[0];
@@ -15,18 +14,12 @@ const Uploader = () => {
       reader.onload = () => {
         setImagePreview(reader.result);
         setImageName(image.name);
-        setShowPopup(true); // Show the popup when an image is uploaded
+        setButtonRound(true); // Make the button round and change its content
       };
       reader.readAsDataURL(image);
     } else {
       alert("Image size more than 2MB");
     }
-  };
-
-  const handlePopupClose = () => {
-    setShowPopup(false); // Hide popup
-    setImagePreview(null); // Clear image preview
-    setImageName(""); // Clear image name
   };
 
   return (
@@ -44,20 +37,18 @@ const Uploader = () => {
         {!imagePreview && <p>Image size must be less than <span>2MB</span></p>}
         {imagePreview && <img src={imagePreview} alt="Preview" />}
       </div>
-      <button className="select-image" onClick={() => document.getElementById('file').click()}>
-        Select Image
-      </button>
 
-      {/* Popup */}
-      {showPopup && (
-        <div className="popup">
-          <button className="close-btn" onClick={handlePopupClose}>
+      {/* Conditional Button */}
+      <button
+        className={`select-image ${buttonRound ? 'round' : ''}`}
+        onClick={() => document.getElementById('file').click()}
+      >
+        {buttonRound ? (
           <IoIosArrowForward className="arrow-icon" />
-
-          </button>
-          <h2>Send</h2>
-        </div>
-      )}
+        ) : (
+          "Select Image"
+        )}
+      </button>
     </div>
   );
 };
