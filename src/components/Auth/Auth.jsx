@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../firebasecongig';  // Import auth from your Firebase config
 import { useNavigate } from 'react-router-dom';  // Use this for redirection
 import './Auth.css';
@@ -19,13 +19,21 @@ function Auth({ type }) {
     try {
       if (type === 'signup') {
         // Create a new user with email and password
-        await createUserWithEmailAndPassword(auth, email, password);
-        console.log('User signed up successfully');
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        // Update the user profile with the entered username
+        await updateProfile(user, {
+          displayName: username,
+        });
+
+        console.log('User signed up successfully with username:', username);
       } else {
         // Sign in the user
         await signInWithEmailAndPassword(auth, email, password);
         console.log('User logged in successfully');
       }
+      
       // Redirect to another page (e.g., dashboard) on success
       navigate('/');  // Adjust this to your desired route
     } catch (err) {
