@@ -3,6 +3,7 @@ import './Header.css';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebasecongig';
 import { onAuthStateChanged, signOut, updatePassword } from 'firebase/auth';
+import { IoIosLogOut } from "react-icons/io";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -75,7 +76,8 @@ function Header() {
   const handleDropdownClick = (e) => {
     e.stopPropagation(); // Prevent closing when clicking inside the dropdown
   };
-
+  const text = user?.displayName; 
+  const firstLetter = text ? text[0] : undefined;
   return (
     <div className="header">
       <div className="buttons">
@@ -86,9 +88,10 @@ function Header() {
           </>
         ) : (
           <>
-            <div className="logout-btn" onClick={handleLogout}>Logout</div>
+            <div className="logout-btn" onClick={handleLogout}><IoIosLogOut className='logout' /></div>
+            
             <div className="profile" onClick={toggleDropdown}>
-              <span>{user?.displayName}</span>
+              <span>{firstLetter}</span>
               {showDropdown && (
                 <div className="dropdown-menu" onClick={handleDropdownClick}>
                   <div className="dropdown-item">Username: {user?.displayName}</div>

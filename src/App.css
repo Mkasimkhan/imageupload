@@ -2,12 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
-.app{
+/* .app{
   display: flex;
   height: 100vh;
   background-color: #f0f4f7; 
 }
 .right{
   height: 100vh;
-}
+} */

@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.gallery-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Masonry style gallery with multiple columns */
+.gallery-grid {
+  column-count: 4; /* You can adjust the number of columns here */
+  column-gap: 20px;
+}
+
+.image-card {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.image-card:hover {
+  transform: scale(1.05);
+}
+
+.image {
+  width: auto;
+  height: auto;
+  /* display: block; */
+  object-fit: contain;
+}
+
+.image-title {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  background-color: #fff;
+}

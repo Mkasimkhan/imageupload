@@ -1,0 +1,117 @@
+.container{
+    display: flex;
+    width: 100vw;
+    overflow: hidden;
+    min-height: 100vh;
+    background-image: url(../../assets/design.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.earth-container{
+    width: 50%;
+    
+    
+}
+
+
+.earth{
+    position: absolute;
+    bottom: -60%;
+    left: 3%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 400px;
+    background-image: url(../../assets/earth1.jpg);
+    background-size: cover;
+    background-repeat: repeat-x;
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px  rgba(0, 0, 0, 1);
+    animation: animateEarth 25s linear infinite;
+    
+}
+@keyframes animateEarth {
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: -750px 0;
+    }
+    
+}
+.tree{
+    position: absolute;
+    bottom: -6%;
+    right: -3%;
+}
+
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+  }
+  
+ 
+  
+  
+  /* Modal styles */
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  
+  
+  /* Animation */
+  #box {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: blue;
+    top: 0;
+    left: 0;
+    -webkit-animation: fly 5s linear 0s infinite;
+    -moz-animation: fly 5s linear 0s infinite;
+    animation: fly 5s linear 0s infinite;
+  }
+  
+  /* @-webkit-keyframes fly {
+    0% {
+      top: 20%;
+      left: 0%;
+    }
+    75% {
+      top: 50%;
+      left: 50%;
+    }
+    100% {
+      top: 0%;
+      left: 100%;
+    }
+  }
+   */
+  @keyframes fly {
+    0% {
+      top: 80%;
+      left: 10%;
+    }
+    45% {
+      top: 95%;
+      left: 30%;
+    }
+    100% {
+      top: 70%;
+      left: 70%;
+    }
+  }
+  

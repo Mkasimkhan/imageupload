@@ -34,14 +34,14 @@
     }
     
     /* Styling for Login and Signup buttons */
-    button {
+    /* button {
         padding: 8px 16px;
         font-size: 14px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
-    }
+    } */
     
     .login-btn {
         background-color: #007bff;
