@@ -12,10 +12,10 @@ const fileTypes = [
   "image/tiff",
   "image/webp",
   "image/x-icon",
-  "image/avif",
+  "image/avif", 
 ];
 
-const ImageUploader = ({ onSend }) => { // Accept the onSend prop
+const ImageUploader = ({ onSend }) => { 
   const [image, setImage] = useState(null);
   const [imageName, setImageName] = useState("");
 
@@ -25,7 +25,7 @@ const ImageUploader = ({ onSend }) => { // Accept the onSend prop
     const uploadedFile = e.target.files[0];
 
     if (!validFileType(uploadedFile) || uploadedFile.size > 2097152) {
-      return; // No alert, just return if invalid type or size
+      return; 
     }
 
     const reader = new FileReader();
@@ -56,7 +56,7 @@ const ImageUploader = ({ onSend }) => { // Accept the onSend prop
         className="selectImage"
         onClick={() => {
           if (image) {
-            onSend(); // Trigger the animation from Earth component
+            onSend(image); // Pass the image URL to the parent
           } else {
             document.getElementById('screenshoot').click();
           }

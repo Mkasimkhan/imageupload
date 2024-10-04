@@ -1,17 +1,20 @@
 import React, { useState } from "react";
-import ImageUploader from '../ImageUploader/ImageUploader'; // Import the ImageUploader component
+import ImageUploader from '../ImageUploader/ImageUploader'; 
 import './Earth.css';
 
 const Earth = () => {
   const [isUploaderOpen, setUploaderOpen] = useState(false);
-  const [showAnimation, setShowAnimation] = useState(false); // State for showing animation
+  const [showAnimation, setShowAnimation] = useState(false); 
+  const [uploadedImage, setUploadedImage] = useState(null); // Store the uploaded image URL
 
   const toggleUploader = () => {
     setUploaderOpen(!isUploaderOpen);
   };
 
-  const handleSend = () => {
+  const handleSend = (image) => {
+    setUploadedImage(image); // Store the uploaded image URL
     setShowAnimation(true);
+    setUploaderOpen(false); // Close the modal
     setTimeout(() => setShowAnimation(false), 5000); // Animation lasts for 5 seconds
   };
 
@@ -21,7 +24,7 @@ const Earth = () => {
         <div className="earth" onClick={toggleUploader}></div>
       </div>
       
-      {isUploaderOpen && (
+      {isUploaderOpen && ( 
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={toggleUploader}>&times;</span>
@@ -30,8 +33,23 @@ const Earth = () => {
         </div>
       )}
 
-      {/* Animation box */}
-      {showAnimation && <div id="box">Sending...</div>}
+      {/* Animation box with background image */}
+      {showAnimation && (
+        <div 
+          id="box" 
+          style={{
+            backgroundImage: `url(${uploadedImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            borderRadius: '50%',
+            width: '100px',
+            height: '100px',
+            
+          }}
+        >
+          
+        </div>
+      )}
     </div>
   );
 };
