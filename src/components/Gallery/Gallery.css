@@ -2,12 +2,14 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  overflow-y: auto; /* Ensure the body itself can scroll */
 }
 
 .gallery-container {
   padding: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  overflow-y: auto; /* Allow scrolling in the container */
 }
 
 .gallery-title {
@@ -17,10 +19,10 @@ body {
   margin-bottom: 40px;
 }
 
-/* Masonry style gallery with multiple columns */
 .gallery-grid {
-  column-count: 4; /* You can adjust the number of columns here */
-  column-gap: 20px;
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+  gap: 20px; /* Space between grid items */
 }
 
 .image-card {
@@ -33,14 +35,13 @@ body {
 }
 
 .image-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Scale up on hover */
 }
 
 .image {
-  width: auto;
+  width: 100%; /* Ensure image takes the full width of the container */
   height: auto;
-  /* display: block; */
-  object-fit: contain;
+  object-fit: cover; /* Cover the container without stretching */
 }
 
 .image-title {

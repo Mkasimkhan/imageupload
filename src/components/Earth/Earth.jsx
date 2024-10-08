@@ -1,30 +1,45 @@
 import React, { useState } from "react";
-import ImageUploader from '../ImageUploader/ImageUploader'; 
+import ImageUploader from '../ImageUploader/ImageUploader';
 import './Earth.css';
+import  globe from '../../assets/newglobe.png'
+import { useNavigate } from 'react-router-dom'; 
 
 const Earth = () => {
   const [isUploaderOpen, setUploaderOpen] = useState(false);
-  const [showAnimation, setShowAnimation] = useState(false); 
-  const [uploadedImage, setUploadedImage] = useState(null); // Store the uploaded image URL
+  const [showAnimation, setShowAnimation] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState(null); 
+  const [showMessage, setShowMessage] = useState(false); 
 
+
+  const navigate = useNavigate();
   const toggleUploader = () => {
     setUploaderOpen(!isUploaderOpen);
   };
 
+  const handleTreeClick = () => {
+    navigate('/gallery'); 
+  };
+
   const handleSend = (image) => {
-    setUploadedImage(image); // Store the uploaded image URL
+    setUploadedImage(image); 
     setShowAnimation(true);
-    setUploaderOpen(false); // Close the modal
-    setTimeout(() => setShowAnimation(false), 5000); // Animation lasts for 5 seconds
+    setUploaderOpen(false); 
+  };
+
+
+  const handleAnimationEnd = () => {
+    setShowMessage(true); 
+    setTimeout(() => setShowMessage(false), 3000);
+    setShowAnimation(false); 
   };
 
   return (
     <div className="container">
       <div className="earth-container">
-        <div className="earth" onClick={toggleUploader}></div>
+        <div className="earth" onClick={toggleUploader}><img src={globe} alt="" className="earthimg" /></div>
       </div>
-      
-      {isUploaderOpen && ( 
+
+      {isUploaderOpen && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={toggleUploader}>&times;</span>
@@ -33,10 +48,10 @@ const Earth = () => {
         </div>
       )}
 
-      {/* Animation box with background image */}
+      
       {showAnimation && (
-        <div 
-          id="box" 
+        <div
+          id="box"
           style={{
             backgroundImage: `url(${uploadedImage})`,
             backgroundSize: 'cover',
@@ -44,10 +59,16 @@ const Earth = () => {
             borderRadius: '50%',
             width: '100px',
             height: '100px',
-            
           }}
-        >
-          
+          onAnimationEnd={handleAnimationEnd}
+        ></div>
+      )}
+      <div className="treelink" onClick={handleTreeClick}></div>
+
+     
+      {showMessage && (
+        <div className="upload-message">
+          Your image has been uploaded!
         </div>
       )}
     </div>

@@ -21,16 +21,25 @@
     bottom: -60%;
     left: 3%;
     transform: translate(-50%,-50%);
-    width: 400px;
+    width: auto;
     height: 400px;
-    background-image: url(../../assets/earth1.jpg);
+    /* background-image: url(../../assets/earth1.jpg);
     background-size: cover;
     background-repeat: repeat-x;
     border-radius: 50%;
     box-shadow: inset 0 0 20px  rgba(0, 0, 0, 1);
     animation: animateEarth 25s linear infinite;
-    
+     */
 }
+ /* .earthimg{
+  height: 600px;
+  width: 600px;
+} */
+/*@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+} */
 @keyframes animateEarth {
     0%{
         background-position: 0 0;
@@ -46,12 +55,9 @@
     right: -3%;
 }
 
-
-.modal{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.close{
+  color: white;
+  font-size: 32px;
 }
 
 .container {
@@ -65,53 +71,136 @@
   /* Modal styles */
   .modal {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    left: 20px; /* Distance from the left side of the viewport */
+    transform: none; /* Remove centering transform */
+    z-index: 1000; /* Ensure the modal is above all other content */
+    max-width: 90vw; /* Prevents modal from overflowing horizontally */
+    max-height: 90vh; /* Prevents modal from overflowing vertically */
+   
   }
   
   
   
   /* Animation */
-  #box {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    background-color: blue;
-    top: 0;
-    left: 0;
-    -webkit-animation: fly 5s linear 0s infinite;
-    -moz-animation: fly 5s linear 0s infinite;
-    animation: fly 5s linear 0s infinite;
-  }
   
   /* @-webkit-keyframes fly {
     0% {
       top: 20%;
       left: 0%;
-    }
-    75% {
+      }
+      75% {
       top: 50%;
       left: 50%;
     }
     100% {
       top: 0%;
       left: 100%;
-    }
-  }
-   */
-  @keyframes fly {
-    0% {
-      top: 80%;
-      left: 10%;
-    }
-    45% {
-      top: 95%;
-      left: 30%;
-    }
-    100% {
-      top: 70%;
-      left: 70%;
-    }
-  }
-  
+      }
+      }
+      */
+      .upload-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        z-index: 10;
+        font-size: 44px; /* Adjust the size as needed */
+        font-weight: bold;
+        background: linear-gradient(to right, #1908b3, #602b77);
+        -webkit-background-clip: text; /* For Safari/Chrome */
+        background-clip: text;
+        color: transparent; /* Make the text transparent */
+        
+      }
+      .treelink{
+        height: 80vh;
+        width: 30vw;
+        position: absolute;
+        bottom: 0;
+        right: 12%;
+      }
+      
+      #box {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        /* background-color: blue; */
+        top: 0;
+        left: 0;
+        -webkit-animation: fly 5s linear 0s 1;
+        -moz-animation: fly 5s linear 0s 1;
+        animation: fly 5s linear 0s 1;
+      }
+      
+      @keyframes fly {
+        0% {
+          top: 80%;
+          left: 10%;
+        }
+        10% {
+          top: 65%;
+          left: 15%;
+        }
+        20% {
+          top: 55%;
+          left: 20%;
+        }
+        30% {
+          top: 45%;
+          left: 25%;
+        }
+        40% {
+          top: 35%;
+          left: 30%;
+        }
+        50% {
+          top: 25%;
+          left: 35%;
+        }
+        60% {
+          top: 20%;
+          left: 45%;
+        }
+        70% {
+          top: 25%;
+          left: 50%;
+        }
+        80% {
+          top: 30%;
+          left: 55%;
+        }
+        90% {
+          top: 35%;
+          left: 60%;
+        }
+        100% {
+          top: 40%;
+          left: 65%;
+        }
+      }
+      
+      /* @media (max-height: 800px) {
+        
+      } */
+      
+      
+      @media (max-height: 650px) {
+        .earth{
+          width: auto;
+          height: 400px;
+      }
+      }
+      @media (min-height: 651px) {
+        .earth{
+          width: auto;
+          height: 500px;
+      }
+      }
+
+      
+      
